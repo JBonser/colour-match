@@ -2,27 +2,38 @@ extends Node
 
 export (Color) var LevelColour
 var valueIncrement = true
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var colour_change = false
+var colour_change_speed = 0.05
 
 func _ready():
     $LevelBackground.color = LevelColour
+    $LevelCanvas/LevelColourRect.color = LevelColour
     set_process(false)
     
 
 func _process(delta):
-    $LevelBackground.color.h += delta * 0.05
-    if valueIncrement:
-        $LevelBackground.color.v += delta * 0.05
-    else:
-        $LevelBackground.color.v -= delta * 0.05
-    if $LevelBackground.color.h > 1.0:
-        $LevelBackground.color.h - 1.0
-    if $LevelBackground.color.v > 0.8 || $LevelBackground.color.v < 0.2:
-        valueIncrement = !valueIncrement
+    if Input.is_action_just_pressed("game_main_input"):
+        colour_change = true
+        $LevelCanvas/MessageLabel.text = ""
+    elif colour_change and Input.is_action_just_released("game_main_input"):
+        colour_change = false
+        level_evaluate()
+        set_process(false)
+    
+    if colour_change:
+        $LevelBackground.color.h += delta * colour_change_speed
+        if $LevelBackground.color.h > 1.0:
+            $LevelBackground.color.h - 1.0
 
-
+func level_evaluate():
+    $LevelCanvas/MessageLabel.text = "Level Finished"
+    $LevelCanvas/UserChosenColourRect.color = $LevelBackground.color
+    $LevelBackground.color = Color(0.5,0.5,0.5,1.0)
+    $LevelCanvas/UserChosenColourRect.show()
+    $LevelCanvas/LevelColourRect.show()
+    
+    
+    
 func start_level():
     $LevelBackground.show()
     $LevelCanvas/MessageLabel.show()
