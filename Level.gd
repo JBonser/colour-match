@@ -1,5 +1,7 @@
 extends Node
 
+var score_screen = preload("res://ScoreScreen.tscn")
+
 export (Color) var LevelColour
 var valueIncrement = true
 var colour_change = false
@@ -7,9 +9,7 @@ var colour_change_speed = 0.05
 
 func _ready():
     $LevelBackground.color = LevelColour
-    $LevelColourRect.color = LevelColour
     set_process(false)
-    
 
 func _process(delta):
     if Input.is_action_just_pressed("game_main_input"):
@@ -26,12 +26,11 @@ func _process(delta):
             $LevelBackground.color.h - 1.0
 
 func level_evaluate():
-    $MessageLabel.text = "Level Finished"
-    $UserChosenColourRect.color = $LevelBackground.color
-    $LevelBackground.color = Color(0.5,0.5,0.5,1.0)
-    $UserChosenColourRect.show()
-    $LevelColourRect.show()
-    
+    var score_screen_instance = score_screen.instance()
+    score_screen_instance.level_colour = LevelColour
+    score_screen_instance.user_chosen_colour = $LevelBackground.color
+    #score_screen_instance.set_colour_properties(LevelColour, $LevelBackground.color)
+    add_child(score_screen_instance)
 
 func start_level():
     $LevelBackground.show()

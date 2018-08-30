@@ -12,7 +12,7 @@ use_filter = true
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Resource", "Settings" ]
 
-[node name="Level" type="Node"]
+[node name="Level" type="Node" index="0"]
 
 pause_mode = 1
 script = ExtResource( 1 )
@@ -62,54 +62,17 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Margin", "Visibility", "custom_fonts" ]
 
-[node name="LevelColourRect" type="ColorRect" parent="." index="2"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 40.0
-margin_top = -300.0
-margin_right = -240.0
-margin_bottom = -240.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 1, 1, 1, 1 )
-_sections_unfolded = [ "Anchor", "Margin" ]
-
-[node name="UserChosenColourRect" type="ColorRect" parent="." index="3"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 240.0
-margin_top = -300.0
-margin_right = -40.0
-margin_bottom = -240.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 1, 1, 1, 1 )
-_sections_unfolded = [ "Anchor", "Margin" ]
-
-[node name="ColourShowTimer" type="Timer" parent="." index="4"]
+[node name="ColourShowTimer" type="Timer" parent="." index="2"]
 
 process_mode = 1
 wait_time = 4.0
 one_shot = true
 autostart = false
 
-[node name="HUD" parent="." index="5" instance=ExtResource( 3 )]
+[node name="HUD" parent="." index="3" instance=ExtResource( 3 )]
+
+margin_right = 195.0
+margin_bottom = 72.0
 
 [connection signal="timeout" from="ColourShowTimer" to="." method="_on_ColourShowTimer_timeout"]
 
