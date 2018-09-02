@@ -8,8 +8,10 @@ var colour_change = false
 var colour_change_speed = 0.05
 
 func _ready():
+    LevelColour = globals.LevelColour
     $LevelBackground.color = LevelColour
     set_process(false)
+    $ColourShowTimer.start()
 
 func _process(delta):
     if Input.is_action_just_pressed("game_main_input"):

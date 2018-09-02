@@ -1,6 +1,4 @@
 extends Node
 
 func _on_StartButton_pressed():
-    $VBoxContainer/Title.hide()
-    $VBoxContainer/StartButton.hide()
-    $Level.start_level()
+    get_tree().change_scene("res://LevelScreen.tscn")

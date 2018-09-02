@@ -14,6 +14,10 @@ config/name="colour_match"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+globals="*res://global.gd"
+
 [display]
 
 window/size/width=480
