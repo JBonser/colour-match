@@ -31,7 +31,6 @@ func level_evaluate():
     var score_screen_instance = score_screen.instance()
     score_screen_instance.level_colour = LevelColour
     score_screen_instance.user_chosen_colour = $LevelBackground.color
-    #score_screen_instance.set_colour_properties(LevelColour, $LevelBackground.color)
     add_child(score_screen_instance)
 
 func start_level():
@@ -39,10 +38,14 @@ func start_level():
     $MessageLabel.show()
     $ColourShowTimer.start()
 
-
 func _on_ColourShowTimer_timeout():
     $MessageLabel.text = "Finger on\nscreen to\nstart!"
     $LevelBackground.color.s = LevelColour.s
     $LevelBackground.color.v = LevelColour.v
     $LevelBackground.color.h = 0.7
     set_process(true)
+
+func _on_Collectable_score():
+    globals.LevelScore += 10
+    $HUD/HBoxContainer/ScoreLabel.text = str(globals.LevelScore)
+

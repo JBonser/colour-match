@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
-[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Collectable.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 40
 use_mipmaps = false
 use_filter = true
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Resource", "Settings" ]
 
 [node name="Level" type="Node"]
@@ -27,14 +28,37 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 0
+mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 1, 1, 1, 1 )
-_sections_unfolded = [ "Anchor", "Margin", "Rect", "Visibility" ]
+_sections_unfolded = [ "Mouse" ]
 
-[node name="MessageLabel" type="Label" parent="." index="1"]
+[node name="ColourShowTimer" type="Timer" parent="." index="1"]
+
+process_mode = 1
+wait_time = 4.0
+one_shot = true
+autostart = false
+
+[node name="Collectable" parent="." index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 230, 480 )
+
+[node name="Collectable2" parent="." index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 230, 160 )
+
+[node name="Collectable3" parent="." index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 120, 310 )
+
+[node name="Collectable4" parent="." index="5" instance=ExtResource( 2 )]
+
+position = Vector2( 340, 270 )
+
+[node name="MessageLabel" type="Label" parent="." index="6"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -58,20 +82,21 @@ valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "Margin", "Visibility", "custom_fonts" ]
+_sections_unfolded = [ "Anchor", "Margin", "custom_fonts" ]
 
-[node name="ColourShowTimer" type="Timer" parent="." index="2"]
-
-process_mode = 1
-wait_time = 4.0
-one_shot = true
-autostart = false
-
-[node name="HUD" parent="." index="3" instance=ExtResource( 3 )]
+[node name="HUD" parent="." index="7" instance=ExtResource( 4 )]
 
 margin_right = 195.0
 margin_bottom = 72.0
 
 [connection signal="timeout" from="ColourShowTimer" to="." method="_on_ColourShowTimer_timeout"]
+
+[connection signal="score" from="Collectable" to="." method="_on_Collectable_score"]
+
+[connection signal="score" from="Collectable2" to="." method="_on_Collectable_score"]
+
+[connection signal="score" from="Collectable3" to="." method="_on_Collectable_score"]
+
+[connection signal="score" from="Collectable4" to="." method="_on_Collectable_score"]
 
 

@@ -9,6 +9,7 @@ var Levels = {
     "4": "743c2a",
     "5": "e5a7d7",
     "6": "37746d",
+    "7": "5ebbae",
     "8": "dded6d",
     "9": "f8e099",
     "10": "90b394",
@@ -19,6 +20,8 @@ var Levels = {
     "15": "8f4c95",
     "16": "7fa4d9",
     }
+
+var LevelScore = 0
 
 func _ready():
     # Called when the node is added to the scene for the first time.
