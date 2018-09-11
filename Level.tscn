@@ -13,7 +13,7 @@ use_filter = true
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Resource", "Settings" ]
 
-[node name="Level" type="Node"]
+[node name="Level" type="Node" index="0"]
 
 pause_mode = 1
 script = ExtResource( 1 )

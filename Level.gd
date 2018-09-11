@@ -12,6 +12,7 @@ func _ready():
     $LevelBackground.color = LevelColour
     set_process(false)
     $ColourShowTimer.start()
+    globals.LevelScore = 0
 
 func _process(delta):
     if Input.is_action_just_pressed("game_main_input"):
