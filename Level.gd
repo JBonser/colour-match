@@ -1,5 +1,6 @@
 extends Node
 
+var collectable = preload("res://Collectable.tscn")
 var score_screen = preload("res://ScoreScreen.tscn")
 
 export (Color) var LevelColour
@@ -7,7 +8,9 @@ var valueIncrement = true
 var colour_change = false
 var colour_change_speed = 0.05
 
+
 func _ready():
+    randomize()
     LevelColour = globals.LevelColour
     $LevelBackground.color = LevelColour
     set_process(false)
@@ -18,6 +21,7 @@ func _process(delta):
     if Input.is_action_just_pressed("game_main_input"):
         colour_change = true
         $MessageLabel.text = ""
+        $CollectableTimer.start()
     elif colour_change and Input.is_action_just_released("game_main_input"):
         colour_change = false
         level_evaluate()
@@ -49,4 +53,17 @@ func _on_ColourShowTimer_timeout():
 func _on_Collectable_score():
     globals.LevelScore += 10
     $HUD/HBoxContainer/ScoreLabel.text = str(globals.LevelScore)
+
+func create_collectable():
+    $CollectablePath/CollectableSpawnLocation.set_offset(randi())
+    #Todo: Need to work out exact value to use for perpendicular offset
+    var perpendicular_offset = randi() % 400
+    $CollectablePath/CollectableSpawnLocation.set_v_offset(perpendicular_offset)
+    var collectable_instance = collectable.instance()
+    add_child(collectable_instance)
+    collectable_instance.connect("score", self, "_on_Collectable_score")
+    collectable_instance.position = $CollectablePath/CollectableSpawnLocation.position
+
+func _on_CollectableTimer_timeout():
+    create_collectable()
 
