@@ -1,7 +1,7 @@
 extends Node
-
+var SaveGamePath = "user://savegame.save"
 var LevelColour = Color(0.5,0.5,0.5,1)
-
+var LevelNumber = 0
 var Levels = { 
     "1": "53c0ae",
     "2": "6063c0",
@@ -21,14 +21,33 @@ var Levels = {
     "16": "7fa4d9",
     }
 
+var CompletedLevels = []
+
 var LevelScore = 0
 
 func _ready():
-    # Called when the node is added to the scene for the first time.
-    # Initialization here
-    pass
+    load_game()
 
-#func _process(delta):
-#    # Called every frame. Delta is time since last frame.
-#    # Update game logic here.
-#    pass
+# Note: This can be called from anywhere inside the tree.  This function is path independent.
+# Go through everything in the persist category and ask them to return a dict of relevant variables
+func save_game():
+    var save_game = File.new()
+    save_game.open(SaveGamePath, File.WRITE)
+    save_game.store_var(CompletedLevels)
+    save_game.close()
+
+# Note: This can be called from anywhere inside the tree. This function is path independent.
+func load_game():
+    var save_game = File.new()
+    if not save_game.file_exists(SaveGamePath):
+        return # Error! We don't have a save to load.
+
+    # Load the file line by line and process that dictionary to restore the object it represents
+    save_game.open(SaveGamePath, File.READ)
+    var levels = save_game.get_var()
+    if typeof(levels) == TYPE_ARRAY:
+        CompletedLevels = levels
+        print(CompletedLevels)
+
+    save_game.close()
+    

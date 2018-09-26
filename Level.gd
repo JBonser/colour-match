@@ -4,6 +4,7 @@ var collectable = preload("res://Collectable.tscn")
 var score_screen = preload("res://ScoreScreen.tscn")
 
 export (Color) var LevelColour
+
 var valueIncrement = true
 var colour_change = false
 var colour_change_speed = 0.05
@@ -36,6 +37,9 @@ func level_evaluate():
     var score_screen_instance = score_screen.instance()
     score_screen_instance.level_colour = LevelColour
     score_screen_instance.user_chosen_colour = $LevelBackground.color
+    if not globals.CompletedLevels.has(globals.LevelNumber):
+        globals.CompletedLevels.append(globals.LevelNumber)
+    globals.save_game()
     add_child(score_screen_instance)
 
 func start_level():

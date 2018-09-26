@@ -9,7 +9,7 @@ size = 48
 use_mipmaps = true
 use_filter = false
 font_data = ExtResource( 1 )
-_sections_unfolded = [ "Font", "Settings" ]
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [node name="LevelButton" type="Button" index="0"]
 
@@ -27,6 +27,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -35,7 +36,7 @@ text = "1"
 flat = false
 align = 1
 script = ExtResource( 2 )
-_sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags", "custom_fonts" ]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Mouse", "Rect", "Size Flags", "Theme", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 LevelColour = Color( 0.326889, 0.753906, 0.683849, 1 )
 
 [connection signal="button_up" from="." to="." method="_on_LevelButton_button_up"]
