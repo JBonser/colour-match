@@ -47,7 +47,6 @@ func load_game():
     var levels = save_game.get_var()
     if typeof(levels) == TYPE_ARRAY:
         CompletedLevels = levels
-        print(CompletedLevels)
 
     save_game.close()
     
