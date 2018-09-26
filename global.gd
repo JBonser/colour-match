@@ -49,4 +49,8 @@ func load_game():
         CompletedLevels = levels
 
     save_game.close()
-    
+
+func clear_save():
+    CompletedLevels.clear()
+    var dir = Directory.new()
+    dir.remove(SaveGamePath)
