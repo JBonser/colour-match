@@ -2,6 +2,9 @@ extends Node
 var SaveGamePath = "user://savegame.save"
 var LevelColour = Color(0.5,0.5,0.5,1)
 var LevelNumber = 0
+var LevelStar1Score = 0
+var LevelStar2Score = 0
+var LevelStar3Score = 0
 var Levels = { 
     "1": "53c0ae",
     "2": "6063c0",
