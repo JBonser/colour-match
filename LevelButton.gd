@@ -8,12 +8,15 @@ export var LevelStar3Score = 0
 signal start_level
 
 func _ready():
-    if globals.CompletedLevels.has(text):
+    var star_requirement = int(globals.Levels[text]["star_requirement"])
+    if star_requirement > globals.calculate_total_stars():
+        self.disabled = true
+    if globals.SaveData["completed_levels"].has(text):
         set("custom_colors/font_color", Color(0,0,0))
         
 
 func _on_LevelButton_button_up():
-    globals.LevelColour = Color(globals.Levels[text])
+    globals.LevelColour = Color(globals.Levels[text]["colour"])
     globals.LevelNumber = text
     globals.LevelStar1Score = LevelStar1Score
     globals.LevelStar2Score = LevelStar2Score

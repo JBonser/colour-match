@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
-[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://StatsBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 65
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=2]
@@ -16,7 +17,7 @@ _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 size = 50
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Main" type="Node"]
@@ -38,7 +39,9 @@ size_flags_vertical = 1
 color = Color( 0.241608, 0.556478, 0.679688, 1 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." index="1"]
+[node name="StatsBar" parent="." index="1" instance=ExtResource( 2 )]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0

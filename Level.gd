@@ -25,7 +25,7 @@ func _process(delta):
         $CollectableTimer.start()
     elif colour_change and Input.is_action_just_released("game_main_input"):
         colour_change = false
-        level_evaluate()
+        display_score_screen()
         set_process(false)
     
     if colour_change:
@@ -33,13 +33,10 @@ func _process(delta):
         if $LevelBackground.color.h > 1.0:
             $LevelBackground.color.h - 1.0
 
-func level_evaluate():
+func display_score_screen():
     var score_screen_instance = score_screen.instance()
     score_screen_instance.level_colour = LevelColour
     score_screen_instance.user_chosen_colour = $LevelBackground.color
-    if not globals.CompletedLevels.has(globals.LevelNumber):
-        globals.CompletedLevels.append(globals.LevelNumber)
-    globals.save_game()
     add_child(score_screen_instance)
 
 func start_level():

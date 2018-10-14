@@ -6,40 +6,46 @@ var LevelStar1Score = 0
 var LevelStar2Score = 0
 var LevelStar3Score = 0
 var Levels = { 
-    "1": "53c0ae",
-    "2": "6063c0",
-    "3": "4ea165",
-    "4": "743c2a",
-    "5": "e5a7d7",
-    "6": "37746d",
-    "7": "5ebbae",
-    "8": "dded6d",
-    "9": "f8e099",
-    "10": "90b394",
-    "11": "f390b3",
-    "12": "f9a911",
-    "13": "07c02d",
-    "14": "4d16e5",
-    "15": "8f4c95",
-    "16": "7fa4d9",
+    "1": { "colour" : "53c0ae", "star_requirement" : "0"},
+    "2": { "colour" : "6063c0", "star_requirement" : "0"},
+    "3": { "colour" : "4ea165", "star_requirement" : "0"},
+    "4": { "colour" : "743c2a", "star_requirement" : "7"},
+    "5": { "colour" : "e5a7d7", "star_requirement" : "9"},
+    "6": { "colour" : "37746d", "star_requirement" : "12"},
+    "7": { "colour" : "5ebbae", "star_requirement" : "14"},
+    "8": { "colour" : "dded6d", "star_requirement" : "17"},
+    "9": { "colour" : "f8e099", "star_requirement" : "20"},
+    "10": { "colour" : "90b394", "star_requirement" : "23"},
+    "11": { "colour" : "f390b3", "star_requirement" : "27"},
+    "12": { "colour" : "f9a911", "star_requirement" : "30"},
+    "13": { "colour" : "07c02d", "star_requirement" : "34"},
+    "14": { "colour" : "4d16e5", "star_requirement" : "37"},
+    "15": { "colour" : "8f4c95", "star_requirement" : "41"},
+    "16": { "colour" : "7fa4d9", "star_requirement" : "44"},
     }
 
-var CompletedLevels = []
+var SaveData = {
+    "completed_levels": {},
+}
 
 var LevelScore = 0
 
 func _ready():
     load_game()
 
-# Note: This can be called from anywhere inside the tree.  This function is path independent.
-# Go through everything in the persist category and ask them to return a dict of relevant variables
+func calculate_total_stars():
+    var num_stars = 0
+    for i in SaveData["completed_levels"]:
+        var level = SaveData["completed_levels"][i]
+        num_stars += int(level["stars"])
+    return num_stars
+
 func save_game():
     var save_game = File.new()
     save_game.open(SaveGamePath, File.WRITE)
-    save_game.store_var(CompletedLevels)
+    save_game.store_var(SaveData)
     save_game.close()
 
-# Note: This can be called from anywhere inside the tree. This function is path independent.
 func load_game():
     var save_game = File.new()
     if not save_game.file_exists(SaveGamePath):
@@ -47,13 +53,14 @@ func load_game():
 
     # Load the file line by line and process that dictionary to restore the object it represents
     save_game.open(SaveGamePath, File.READ)
-    var levels = save_game.get_var()
-    if typeof(levels) == TYPE_ARRAY:
-        CompletedLevels = levels
+    var save_data = save_game.get_var()
+    if typeof(save_data) == TYPE_DICTIONARY:
+        SaveData = save_data
 
     save_game.close()
 
 func clear_save():
-    CompletedLevels.clear()
+    SaveData["completed_levels"].clear()
+    SaveData["stars"] = 0
     var dir = Directory.new()
     dir.remove(SaveGamePath)
