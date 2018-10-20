@@ -7,6 +7,8 @@
 [sub_resource type="DynamicFont" id=1]
 
 size = 40
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = true
 font_data = ExtResource( 3 )
@@ -15,13 +17,14 @@ _sections_unfolded = [ "Font", "Resource", "Settings" ]
 [sub_resource type="DynamicFont" id=2]
 
 size = 28
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="ScoreScreen" type="CanvasLayer" index="0"]
-
+[node name="ScoreScreen" type="CanvasLayer"]
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -31,9 +34,7 @@ script = ExtResource( 1 )
 level_colour = null
 user_chosen_colour = null
 
-[node name="BackgroundContainer" type="HBoxContainer" parent="." index="0"]
-
-editor/display_folded = true
+[node name="BackgroundContainer" type="HBoxContainer" parent="."]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -48,8 +49,7 @@ custom_constants/separation = 0
 alignment = 0
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_constants" ]
 
-[node name="LevelColourRect" type="ColorRect" parent="BackgroundContainer" index="0"]
-
+[node name="LevelColourRect" type="ColorRect" parent="BackgroundContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -65,8 +65,7 @@ size_flags_vertical = 3
 color = Color( 1, 1, 1, 1 )
 _sections_unfolded = [ "Anchor", "Margin", "Size Flags" ]
 
-[node name="UserChosenColourRect" type="ColorRect" parent="BackgroundContainer" index="1"]
-
+[node name="UserChosenColourRect" type="ColorRect" parent="BackgroundContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -83,9 +82,7 @@ size_flags_vertical = 3
 color = Color( 1, 1, 1, 1 )
 _sections_unfolded = [ "Anchor", "Margin", "Size Flags" ]
 
-[node name="MarginContainer" type="MarginContainer" parent="." index="1"]
-
-editor/display_folded = true
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -102,9 +99,7 @@ custom_constants/margin_left = 40
 custom_constants/margin_bottom = 100
 _sections_unfolded = [ "Rect", "Size Flags", "custom_constants" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" index="0"]
-
-editor/display_folded = true
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -123,8 +118,7 @@ custom_constants/separation = 20
 alignment = 0
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_constants" ]
 
-[node name="ScoreScreenBackground" type="PanelContainer" parent="MarginContainer/VBoxContainer" index="0"]
-
+[node name="ScoreScreenBackground" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -139,8 +133,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material", "Rect", "Visibility", "custom_styles" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScoreScreenBackground" index="0"]
-
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScoreScreenBackground"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -159,9 +152,7 @@ custom_constants/separation = 1
 alignment = 0
 _sections_unfolded = [ "Anchor", "Margin", "Size Flags", "custom_constants" ]
 
-[node name="Stars" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScoreScreenBackground/VBoxContainer" index="0"]
-
-editor/display_folded = true
+[node name="Stars" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScoreScreenBackground/VBoxContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -179,8 +170,7 @@ custom_constants/separation = 50
 alignment = 1
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Material", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
 
-[node name="Star1" type="TextureRect" parent="MarginContainer/VBoxContainer/ScoreScreenBackground/VBoxContainer/Stars" index="0"]
-
+[node name="Star1" type="TextureRect" parent="MarginContainer/VBoxContainer/ScoreScreenBackground/VBoxContainer/Stars"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -199,8 +189,7 @@ texture = ExtResource( 2 )
 stretch_mode = 4
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags" ]
 
-[node name="Star2" type="TextureRect" parent="MarginContainer/VBoxContainer/ScoreScreenBackground/VBoxContainer/Stars" index="1"]
-
+[node name="Star2" type="TextureRect" parent="MarginContainer/VBoxContainer/ScoreScreenBackground/VBoxContainer/Stars"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -219,8 +208,7 @@ texture = ExtResource( 2 )
 stretch_mode = 4
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags" ]
 
-[node name="Star3" type="TextureRect" parent="MarginContainer/VBoxContainer/ScoreScreenBackground/VBoxContainer/Stars" index="2"]
-
+[node name="Star3" type="TextureRect" parent="MarginContainer/VBoxContainer/ScoreScreenBackground/VBoxContainer/Stars"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -239,8 +227,7 @@ texture = ExtResource( 2 )
 stretch_mode = 4
 _sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags" ]
 
-[node name="Score" type="Label" parent="MarginContainer/VBoxContainer/ScoreScreenBackground/VBoxContainer" index="1"]
-
+[node name="Score" type="Label" parent="MarginContainer/VBoxContainer/ScoreScreenBackground/VBoxContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -262,8 +249,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Visibility", "custom_fonts" ]
 
-[node name="ScoreMessage" type="Label" parent="MarginContainer/VBoxContainer/ScoreScreenBackground/VBoxContainer" index="2"]
-
+[node name="ScoreMessage" type="Label" parent="MarginContainer/VBoxContainer/ScoreScreenBackground/VBoxContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -286,8 +272,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Margin", "Visibility", "custom_fonts" ]
 
-[node name="MainMenuButton" type="Button" parent="MarginContainer/VBoxContainer" index="1"]
-
+[node name="MainMenuButton" type="Button" parent="MarginContainer/VBoxContainer"]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -315,5 +300,3 @@ align = 1
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Size Flags", "custom_fonts" ]
 
 [connection signal="button_up" from="MarginContainer/VBoxContainer/MainMenuButton" to="." method="_on_MainMenuButton_button_up"]
-
-

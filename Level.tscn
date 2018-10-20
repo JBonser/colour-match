@@ -7,6 +7,8 @@
 [sub_resource type="DynamicFont" id=1]
 
 size = 40
+outline_size = 0
+outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = true
 font_data = ExtResource( 2 )
@@ -19,15 +21,13 @@ _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 420, 91.0345, 0, 0, 0, 0, 420, 660, 0, 0, 0, 0, 50, 660, 0, 0, 0, 0, 50, 91.0345, 0, 0, 0, 0, 420, 91.0345 )
 }
 
-[node name="Level" type="Node" index="0"]
-
+[node name="Level" type="Node"]
 pause_mode = 1
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause", "Transform", "Visibility" ]
 LevelColour = Color( 0.32549, 0.752941, 0.682353, 1 )
 
-[node name="LevelBackground" type="ColorRect" parent="." index="0"]
-
+[node name="LevelBackground" type="ColorRect" parent="."]
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -44,15 +44,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ColourShowTimer" type="Timer" parent="." index="1"]
-
+[node name="ColourShowTimer" type="Timer" parent="."]
 process_mode = 1
 wait_time = 4.0
 one_shot = true
 autostart = false
 
-[node name="MessageLabel" type="Label" parent="." index="2"]
-
+[node name="MessageLabel" type="Label" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -80,22 +78,19 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="HUD" parent="." index="3" instance=ExtResource( 3 )]
-
+[node name="HUD" parent="." instance=ExtResource( 3 )]
 margin_right = 195.0
 margin_bottom = 72.0
 
-[node name="CollectablePath" type="Path2D" parent="." index="4"]
-
+[node name="CollectablePath" type="Path2D" parent="."]
 editor/display_folded = true
 self_modulate = Color( 0.5, 0.6, 1, 0.7 )
-position = Vector2( 3.8147e-006, 2 )
+position = Vector2( 3.8147e-06, 2 )
 scale = Vector2( 1, 0.966667 )
 curve = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollectableSpawnLocation" type="PathFollow2D" parent="CollectablePath" index="0"]
-
+[node name="CollectableSpawnLocation" type="PathFollow2D" parent="CollectablePath"]
 position = Vector2( 420, 91.0345 )
 rotation = 1.5708
 offset = 0.0
@@ -106,15 +101,11 @@ cubic_interp = true
 loop = true
 lookahead = 4.0
 
-[node name="CollectableTimer" type="Timer" parent="." index="5"]
-
+[node name="CollectableTimer" type="Timer" parent="."]
 process_mode = 1
 wait_time = 2.0
 one_shot = false
 autostart = false
 
 [connection signal="timeout" from="ColourShowTimer" to="." method="_on_ColourShowTimer_timeout"]
-
 [connection signal="timeout" from="CollectableTimer" to="." method="_on_CollectableTimer_timeout"]
-
-
