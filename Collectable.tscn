@@ -72,11 +72,12 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Particles" type="Particles2D" parent="." index="0"]
 
 emitting = true
-amount = 30
+amount = 100
 lifetime = 4.0
 one_shot = false
 preprocess = 0.0
