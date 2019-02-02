@@ -4,19 +4,18 @@
 [ext_resource path="res://artwork/level_button_disabled.png" type="Texture" id=2]
 [ext_resource path="res://LevelButton.gd" type="Script" id=3]
 [ext_resource path="res://artwork/star_empty_small.png" type="Texture" id=4]
-[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://fonts/Indie_Flower/IndieFlower.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 30
-outline_size = 0
-outline_color = Color( 1, 1, 1, 1 )
 use_mipmaps = false
 use_filter = true
 font_data = ExtResource( 5 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="LevelButton" type="TextureButton"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -45,8 +44,8 @@ LevelStar2Score = 0
 LevelStar3Score = 0
 Number = "0"
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-editor/display_folded = true
+[node name="MarginContainer" type="MarginContainer" parent="." index="0"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -63,8 +62,8 @@ custom_constants/margin_left = 5
 custom_constants/margin_bottom = 5
 _sections_unfolded = [ "Mouse", "custom_constants" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-editor/display_folded = true
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" index="0"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -81,7 +80,8 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 alignment = 0
 
-[node name="Stars" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Stars" type="HBoxContainer" parent="MarginContainer/VBoxContainer" index="0"]
+
 editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
@@ -99,7 +99,8 @@ custom_constants/separation = 5
 alignment = 1
 _sections_unfolded = [ "Margin", "Rect", "Size Flags", "custom_constants" ]
 
-[node name="Star1" type="TextureRect" parent="MarginContainer/VBoxContainer/Stars"]
+[node name="Star1" type="TextureRect" parent="MarginContainer/VBoxContainer/Stars" index="0"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -117,7 +118,8 @@ texture = ExtResource( 4 )
 stretch_mode = 0
 _sections_unfolded = [ "Mouse", "Size Flags" ]
 
-[node name="Star2" type="TextureRect" parent="MarginContainer/VBoxContainer/Stars"]
+[node name="Star2" type="TextureRect" parent="MarginContainer/VBoxContainer/Stars" index="1"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -134,7 +136,8 @@ size_flags_vertical = 1
 texture = ExtResource( 4 )
 stretch_mode = 0
 
-[node name="Star3" type="TextureRect" parent="MarginContainer/VBoxContainer/Stars"]
+[node name="Star3" type="TextureRect" parent="MarginContainer/VBoxContainer/Stars" index="2"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -151,7 +154,8 @@ size_flags_vertical = 1
 texture = ExtResource( 4 )
 stretch_mode = 0
 
-[node name="LevelNumber" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="LevelNumber" type="Label" parent="MarginContainer/VBoxContainer" index="1"]
+
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -174,3 +178,5 @@ max_lines_visible = -1
 _sections_unfolded = [ "Size Flags", "custom_colors", "custom_fonts" ]
 
 [connection signal="button_up" from="." to="." method="_on_LevelButton_button_up"]
+
+

@@ -62,7 +62,7 @@ _sections_unfolded = [ "Emission Shape", "Gravity", "Initial Velocity", "Radial 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Collectable" type="Area2D" index="0"]
+[node name="Collectable" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )

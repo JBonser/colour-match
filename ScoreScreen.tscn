@@ -2,7 +2,7 @@
 
 [ext_resource path="res://ScoreScreen.gd" type="Script" id=1]
 [ext_resource path="res://artwork/star_empty.png" type="Texture" id=2]
-[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://fonts/Indie_Flower/IndieFlower.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 
