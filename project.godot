@@ -34,3 +34,4 @@ game_main_input=[ Object(InputEventMouseButton,"resource_local_to_scene":false,"
 [rendering]
 
 environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=true
