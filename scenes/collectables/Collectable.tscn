@@ -1,7 +1,8 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Collectable.gd" type="Script" id=1]
+[ext_resource path="res://scenes/collectables/Collectable.gd" type="Script" id=1]
 [ext_resource path="res://artwork/collectable.png" type="Texture" id=2]
+
 
 [sub_resource type="Curve" id=1]
 

@@ -2,9 +2,12 @@
 
 [ext_resource path="res://artwork/level_button.png" type="Texture" id=1]
 [ext_resource path="res://artwork/level_button_disabled.png" type="Texture" id=2]
-[ext_resource path="res://LevelButton.gd" type="Script" id=3]
+[ext_resource path="res://scenes/ui/level_select/LevelButton.gd" type="Script" id=3]
 [ext_resource path="res://artwork/star_empty_small.png" type="Texture" id=4]
 [ext_resource path="res://fonts/Indie_Flower/IndieFlower.ttf" type="DynamicFontData" id=5]
+
+
+
 
 [sub_resource type="DynamicFont" id=1]
 

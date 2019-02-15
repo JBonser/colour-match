@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Level.gd" type="Script" id=1]
+[ext_resource path="res://scenes/levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Indie_Flower/IndieFlower.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://HUD.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/ui/level/HUD.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 

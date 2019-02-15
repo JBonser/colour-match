@@ -25,7 +25,7 @@ func _on_LevelButton_button_up():
     globals.LevelStar1Score = LevelStar1Score
     globals.LevelStar2Score = LevelStar2Score
     globals.LevelStar3Score = LevelStar3Score
-    get_tree().change_scene("res://Level.tscn")
+    get_tree().change_scene("res://scenes/levels/Level.tscn")
 
 
 func calculate_stars(stars):

@@ -3,7 +3,7 @@ extends HBoxContainer
 export var num_levels = 3
 export var starting_level_number = 1
 
-var level_button = preload("res://LevelButton.tscn")
+var level_button = preload("res://scenes/ui/level_select/LevelButton.tscn")
 
 
 func _ready():

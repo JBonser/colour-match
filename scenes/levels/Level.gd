@@ -1,7 +1,7 @@
 extends Node
 
-var collectable = preload("res://Collectable.tscn")
-var score_screen = preload("res://ScoreScreen.tscn")
+var collectable = preload("res://scenes/collectables/Collectable.tscn")
+var score_screen = preload("res://scenes/ui/score/ScoreScreen.tscn")
 
 export (Color) var LevelColour
 

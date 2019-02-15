@@ -46,4 +46,4 @@ func calculate_stars(score):
 
 
 func _on_MainMenuButton_button_up():
-    get_tree().change_scene("res://Main.tscn")
+    get_tree().change_scene("res://scenes/Main.tscn")

@@ -10,7 +10,7 @@ use_filter = false
 font_data = ExtResource( 1 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[node name="HUD" type="MarginContainer"]
+[node name="HUD" type="MarginContainer" index="0"]
 
 editor/display_folded = true
 anchor_left = 0.0
