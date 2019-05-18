@@ -23,4 +23,4 @@ A level score screen will show giving you an indicator to how close you were
 to the original colour.
 
 
-![Gameplay Example](https://github.com/JBonser/colour-match/tree/master/artwork/gameplay_example/colour_match.gif)
+![Gameplay Example](https://github.com/JBonser/colour-match/blob/master/artwork/gameplay_example/colour_match.gif)
